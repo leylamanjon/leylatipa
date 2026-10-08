@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&display=swap" rel="stylesheet">
 <style>
-/* Concepto: estudio de una sola persona. El logotipo pixelado de Leyla es el único gesto grande (hero y cierre); todo lo demás es pequeño, preciso y accesible, con la estructura de la web Highfi de Koinor: cabecera centrada fija, cuadrícula despareja, líneas finas, sin tarjetas con borde. */
+/* Concepto: una sola persona, un solo gesto grande. Titular azul en el hero, sección de servicios en lima y cierre en azul con el isotipo. Todo lo demás es pequeño, preciso y accesible, con la estructura de la web Highfi de Koinor: cabecera centrada fija, listas con líneas finas, sin tarjetas con borde. */
 :root{
   --paper:#F7F7F7;
   --surface:#E7E7E7;
@@ -40,55 +40,49 @@ svg.logo{display:block;width:100%;height:auto}
 .nav a:hover{color:var(--ink)}
 
 /* Hero */
-.hero{padding-block:48px 72px}
-.hero h1{margin:0;color:var(--blue)}
-.hero-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px 16px;margin-top:44px;align-items:end}
-.lead{grid-column:span 6;margin:0;font-size:clamp(18px,2.2vw,24px);line-height:1.3;font-weight:500;letter-spacing:-0.015em;text-wrap:balance;min-width:0}
-.meta{grid-column:9 / span 4;display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-size:12px;color:var(--mute);min-width:0}
-.meta p{margin:0}
-.pill{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:500;transition:background .2s,color .2s}
+.hero{padding-block:88px 88px}
+.hero h1{margin:0;max-width:15em;color:var(--blue);font-size:clamp(34px,6.4vw,88px);line-height:1;font-weight:600;font-stretch:112%;letter-spacing:-0.04em;text-wrap:balance}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:20px 40px;margin-top:40px}
+.hero-row p{margin:0;max-width:46ch;font-size:14px;color:var(--mute)}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);padding:8px 16px;border-radius:999px;font-size:12px;font-weight:500;transition:background .2s,color .2s}
 .pill i{width:6px;height:6px;border-radius:50%;background:var(--ink)}
 .pill:hover{background:var(--ink);color:var(--lime)}
 .pill:hover i{background:var(--lime)}
 
 /* Secciones */
-.sec{border-top:1px solid var(--line);padding-block:64px}
+.sec{border-top:1px solid var(--line);padding-block:72px}
 .label{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);margin:0 0 24px}
+.sec-h{margin:0 0 40px;max-width:22em;font-size:clamp(20px,2.6vw,32px);line-height:1.15;font-weight:600;font-stretch:112%;letter-spacing:-0.03em;text-wrap:balance}
 
 /* Trabajo */
-.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:56px 16px;align-items:start}
-.p1{grid-column:span 7}
-.p2{grid-column:span 5}
-.p3{grid-column:span 5}
-.more{grid-column:8 / span 5;min-width:0}
-.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:14px;width:100%;overflow:hidden}
-.p1 .tile{aspect-ratio:7/5}
-.p2 .tile,.p3 .tile{aspect-ratio:1/1}
-.tile .tag{font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding-right:28px}
-.tile .ar{position:absolute;top:10px;right:14px;font-size:17px;line-height:1;transition:transform .25s}
-.tile .nm{font-weight:600;font-stretch:112%;font-size:clamp(24px,3.6vw,46px);line-height:1;letter-spacing:-0.035em;text-wrap:balance;margin:0}
-.t-blue{background:var(--blue);color:#fff}
-.t-lime{background:var(--lime);color:var(--ink)}
-.t-ink{background:var(--ink);color:var(--lime)}
-.proj:hover .ar,.proj:focus-visible .ar{transform:translate(3px,-3px)}
-.cap{display:flex;flex-direction:column;gap:2px;margin-top:12px}
-.cap b{font-weight:500;font-size:13px;transition:color .2s}
-.cap small{font-size:12px;color:var(--mute);max-width:46ch}
-.proj:hover .cap b{color:var(--blue)}
-.more ul{list-style:none;margin:0;padding:0}
-.more li{border-top:1px solid var(--line)}
-.more li:last-child{border-bottom:1px solid var(--line)}
-.more li a,.more li span{display:flex;justify-content:space-between;gap:12px;padding:10px 0;font-size:13px}
-.more li small{color:var(--mute);font-size:12px}
-.more li a{transition:color .2s}
-.more li a:hover{color:var(--blue)}
+.feat{list-style:none;margin:0;padding:0}
+.feat>li{border-top:1px solid var(--line)}
+.feat>li:last-child{border-bottom:1px solid var(--line)}
+.fr{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:8px 16px;padding:28px 0;align-items:start}
+.fr .n{grid-column:span 4;margin:0;font-size:clamp(20px,2.6vw,32px);font-weight:600;font-stretch:112%;letter-spacing:-0.03em;line-height:1.1;transition:color .2s}
+.fr .d{grid-column:span 5;margin:0;color:var(--mute);max-width:46ch}
+.fr .m{grid-column:span 2;font-size:12px;font-weight:500;line-height:1.5}
+.fr .ar{grid-column:span 1;justify-self:end;font-size:18px;line-height:1;transition:transform .25s}
+a.fr:hover .n{color:var(--blue)}
+a.fr:hover .ar{transform:translate(3px,-3px)}
+.cmp-h{margin:56px 0 16px}
+.cmp{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:48px}
+.cmp li{border-top:1px solid var(--line)}
+.cmp li:nth-last-child(-n+2){border-bottom:1px solid var(--line)}
+.c{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:11px 0;transition:color .2s}
+.c small{display:flex;gap:10px;color:var(--mute);font-size:12px;text-align:right}
+.c i{font-style:normal;display:inline-block;min-width:1em;transition:transform .25s}
+a.c:hover{color:var(--blue)}
+a.c:hover i{transform:translate(2px,-2px)}
 
-/* Servicios */
-.rows{list-style:none;margin:0;padding:0}
-.rows li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px 16px;padding:16px 0;border-top:1px solid var(--line)}
-.rows li:last-child{border-bottom:1px solid var(--line)}
-.rows h3{grid-column:span 4;margin:0;font-size:14px;font-weight:600;letter-spacing:-0.005em}
-.rows p{grid-column:6 / span 7;margin:0;color:var(--mute);max-width:56ch}
+/* Servicios (fondo lima) */
+.lime{background:var(--lime);border-top:0}
+.svc{list-style:none;margin:0;padding:0}
+.svc>li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:14px 16px;padding:28px 0;border-top:1px solid rgba(43,43,43,.28)}
+.svc>li:last-child{border-bottom:1px solid rgba(43,43,43,.28)}
+.svc h3{grid-column:span 4;margin:0;font-size:clamp(20px,2.4vw,28px);font-weight:600;font-stretch:112%;letter-spacing:-0.03em;line-height:1.1}
+.chips{grid-column:5 / span 8;list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.chips li{background:var(--paper);padding:6px 12px;border-radius:6px;font-size:12px;font-weight:500}
 
 /* Proceso */
 .steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 16px;list-style:none;margin:0;padding:0}
@@ -98,49 +92,44 @@ svg.logo{display:block;width:100%;height:auto}
 .steps p{margin:0;color:var(--mute);max-width:30ch}
 
 /* Sobre mí */
-.cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px 16px}
+.cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:48px 16px}
 .c-text{grid-column:span 6;min-width:0}
 .c-text p{margin:0;font-size:clamp(15px,1.6vw,17px);line-height:1.5;max-width:52ch}
-.c-a{grid-column:8 / span 2;min-width:0}
-.c-b{grid-column:10 / span 3;min-width:0}
-.cols h3{margin:0 0 10px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute)}
-.cols p.s{margin:0}
-.cols p.s + p.s{margin-top:4px}
-.cols p.m{color:var(--mute)}
-.clients{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);line-height:1.9}
-.clients b{color:var(--ink);font-weight:500;margin-right:14px}
+.c-text p + p{margin-top:16px;color:var(--mute)}
+.c-exp{grid-column:8 / span 5;min-width:0}
+.c-exp h3,.prin h3,.facts dt{margin:0;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute)}
+.exp{list-style:none;margin:12px 0 0;padding:0}
+.exp li{display:grid;grid-template-columns:96px minmax(0,1fr);gap:4px 16px;padding:14px 0;border-top:1px solid var(--line)}
+.exp li:last-child{border-bottom:1px solid var(--line)}
+.exp .per{font-size:12px;color:var(--mute)}
+.exp b{font-weight:600}
+.exp p{margin:2px 0 0;color:var(--mute)}
+.prin-h{margin:72px 0 16px}
+.prin{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 16px}
+.prin>div{border-top:2px solid var(--ink);padding-top:12px}
+.prin h4{margin:0 0 6px;font-size:14px;font-weight:600}
+.prin p{margin:0;color:var(--mute);max-width:34ch}
+.facts{margin:72px 0 0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:0 16px}
+.facts dt{grid-column:span 3;padding:14px 0;border-top:1px solid var(--line)}
+.facts dd{grid-column:4 / span 9;margin:0;padding:12px 0;border-top:1px solid var(--line);line-height:1.8}
+.facts dt:last-of-type,.facts dd:last-of-type{border-bottom:1px solid var(--line)}
+.facts dd a{border-bottom:1px solid var(--line);transition:color .2s,border-color .2s}
+.facts dd a:hover{color:var(--blue);border-color:var(--blue)}
 
-/* Contacto y pie */
+/* Contacto y pie (fondo azul) */
 .blue{background:var(--blue);color:#fff}
-.blue a:focus-visible,.blue button:focus-visible,.blue input:focus-visible,.blue textarea:focus-visible,.blue select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.blue a:focus-visible,.blue button:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
 .ct{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:56px 16px;align-items:center;padding-block:96px 56px}
 .ct-main{grid-column:span 7;min-width:0}
 .ct-iso{grid-column:9 / span 4;color:var(--lime)}
 .ct-iso svg{display:block;width:100%;height:auto}
-.ct-h{margin:0 0 24px;color:var(--lime);font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-0.02em}
-.form{display:flex;flex-direction:column;gap:12px;max-width:640px}
-.f-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.f{min-width:0}
-.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.form input,.form textarea,.form select{display:block;width:100%;font:inherit;font-size:13px;color:#fff;background:transparent;border:1px solid #DCE6FF;border-radius:4px;padding:0 12px;height:44px}
-.form textarea{height:auto;min-height:96px;padding:12px;resize:vertical;line-height:1.5}
-.form select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23E9FC7C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
-.form option{color:#2B2B2B;background:#fff}
-.form ::placeholder{color:#DCE6FF;opacity:1}
-.send{align-self:flex-start;height:44px;padding:0 22px;border-radius:999px;background:var(--lime);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s}
-.send:hover{background:#fff}
-.sent{margin-top:24px;max-width:640px;border:1px solid var(--lime);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:12px}
-.sent p{margin:0}
-.sent-t{color:var(--lime);font-weight:600}
-.sent-n{color:#DCE6FF}
-.sent-b{margin:0;white-space:pre-wrap;font:inherit;color:#fff;background:rgba(0,0,0,.2);padding:12px;border-radius:4px}
-.sent-a{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
-.alt{color:var(--lime);border-bottom:1px solid var(--lime);padding-bottom:2px;font-weight:500}
-.ct-mail{margin-top:56px}
-.ct-h2{margin:0 0 8px;color:var(--lime);font-size:clamp(18px,2vw,22px);font-weight:600;letter-spacing:-0.01em}
+.ct-h{margin:0;color:var(--lime);font-size:clamp(28px,4.4vw,56px);line-height:1;font-weight:600;font-stretch:112%;letter-spacing:-0.04em}
+.ct-p{margin:20px 0 0;max-width:46ch;font-size:14px;color:#DCE6FF}
+.ct-row{margin-top:40px}
+.ct-h2{margin:0 0 8px;color:var(--lime);font-size:12px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase}
 .mail{display:inline-block;font-size:clamp(20px,3vw,32px);letter-spacing:-0.02em;overflow-wrap:anywhere;border-bottom:1px solid transparent;transition:border-color .2s}
 .mail:hover{border-color:#fff}
-.copy-mail{display:block;margin-top:8px;color:var(--lime);font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+.copy-mail{display:block;margin-top:6px;color:var(--lime);font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:4px;padding:6px 0}
 .foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding-block:20px 28px;font-size:12px;color:var(--lime);border-top:1px solid rgba(233,252,124,.35)}
 .soc{display:flex;gap:18px}
 .soc a{padding:6px 0}
@@ -151,30 +140,31 @@ svg.logo{display:block;width:100%;height:auto}
 .lang i{font-style:normal;color:#8FA9FF}
 
 @media (max-width:860px){
+  .fr .n{grid-column:1 / span 10}
+  .fr .ar{grid-column:11 / span 2;grid-row:1}
+  .fr .d,.fr .m{grid-column:1 / -1}
+  .cmp{grid-template-columns:1fr}
+  .cmp li:nth-last-child(2){border-bottom:0}
+  .svc h3,.chips{grid-column:1 / -1}
   .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .c-a{grid-column:1 / span 5}
-  .c-b{grid-column:6 / span 7}
-  .c-text{grid-column:1 / -1}
-  .rows h3{grid-column:1 / -1}
-  .rows p{grid-column:1 / -1}
-  .lead{grid-column:1 / -1}
-  .meta{grid-column:1 / -1}
+  .c-text,.c-exp{grid-column:1 / -1}
+  .prin{grid-template-columns:1fr}
+  .prin-h{margin-top:56px}
+  .facts{margin-top:56px}
+  .facts dt{grid-column:1 / -1;border-bottom:0;padding-bottom:0}
+  .facts dd{grid-column:1 / -1;border-top:0;padding-top:4px}
+  .facts dt:last-of-type{border-bottom:0}
   .ct-main{grid-column:1 / -1}
   .ct-iso{grid-column:1 / span 5}
 }
 @media (max-width:640px){
-  .hero{padding-block:32px 48px}
-  .hero-row{margin-top:32px}
-  .sec{padding-block:48px}
-  .p1,.p2,.p3,.more{grid-column:1 / -1}
-  .p1 .tile{aspect-ratio:4/3}
-  .p2 .tile,.p3 .tile{aspect-ratio:4/3}
-  .c-a,.c-b{grid-column:1 / -1}
+  .hero{padding-block:48px 56px}
+  .sec{padding-block:56px}
   .steps{grid-template-columns:1fr}
+  .exp li{grid-template-columns:1fr}
   .ct{padding-block:64px 32px}
   .ct-iso{grid-column:1 / -1;max-width:220px}
-  .f-row{grid-template-columns:1fr}
-  .ct-mail{margin-top:40px}
+  .ct-row{margin-top:32px}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
 </style>
@@ -204,13 +194,10 @@ svg.logo{display:block;width:100%;height:auto}
 <main id="contenido">
   <section class="hero" id="top">
     <div class="wrap">
-      <h1><svg class="logo" viewBox="0 0 975 228" role="img" aria-label="Leyla Tipa"><use href="#lt-logo"/></svg></h1>
+      <h1 data-en="Accessible, inclusive digital products, from research to code.">Productos digitales accesibles e inclusivos, de la investigación al código.</h1>
       <div class="hero-row">
-        <p class="lead" data-en="I design accessible, inclusive digital products, from research to code.">Diseño productos digitales accesibles e inclusivos, de la investigación al código.</p>
-        <div class="meta">
-          <p data-en="Digital product designer in La Paz, Bolivia. I work with teams and brands around the world.">Diseñadora de productos digitales en La Paz, Bolivia. Trabajo con equipos y marcas de todo el mundo.</p>
-          <a class="pill" href="#contacto"><i aria-hidden="true"></i><span data-en="Tight schedule, let's talk">Agenda ajustada, hablemos</span></a>
-        </div>
+        <p data-en="Leyla Tipa, digital product designer in La Paz, Bolivia. I work remotely with teams and brands around the world.">Leyla Tipa, diseñadora de productos digitales en La Paz, Bolivia. Trabajo en remoto con equipos y marcas de todo el mundo.</p>
+        <a class="pill" href="#contacto"><i aria-hidden="true"></i><span data-en="Tight schedule, let's talk">Agenda ajustada, hablemos</span></a>
       </div>
     </div>
   </section>
@@ -218,55 +205,81 @@ svg.logo{display:block;width:100%;height:auto}
   <section class="sec" id="trabajo">
     <div class="wrap">
       <h2 class="label" data-en="Selected work">Trabajo seleccionado</h2>
-      <div class="grid">
-        <a class="proj p1" href="https://granierortizwines.com/" target="_blank" rel="noopener">
-          <div class="tile t-blue">
-            <span class="tag" data-en="Brand · Website">Marca · Sitio web</span>
-            <span class="ar" aria-hidden="true">↗</span>
-            <p class="nm">Granier Ortiz</p>
-          </div>
-          <div class="cap"><b>Granier Ortiz</b><small data-en="Brand and website for 100 years of winemaking and the launch of the Prestige Gran Reserva Principia.">Marca y sitio web para los 100 años de la familia en la vinicultura y el lanzamiento del Prestige Gran Reserva Principia.</small></div>
-        </a>
-        <a class="proj p2" href="https://www.trendsetterbolivia.com/" target="_blank" rel="noopener">
-          <div class="tile t-lime">
-            <span class="tag" data-en="Design · Development">Diseño · Desarrollo</span>
-            <span class="ar" aria-hidden="true">↗</span>
-            <p class="nm">Trendsetter Bolivia</p>
-          </div>
-          <div class="cap"><b>Trendsetter Bolivia</b><small data-en="From a magazine to a national multiplatform outlet. 2022.">De revista a medio multiplataforma nacional. 2022.</small></div>
-        </a>
-        <a class="proj p3" href="https://www.vivasantacruz.bo/" target="_blank" rel="noopener">
-          <div class="tile t-ink">
-            <span class="tag" data-en="Website">Sitio web</span>
-            <span class="ar" aria-hidden="true">↗</span>
-            <p class="nm">Santa Cruz de la Sierra</p>
-          </div>
-          <div class="cap"><b>Santa Cruz de la Sierra</b><small data-en="A look at the city's Bebeteca, a baby library for art and culture.">Una mirada a la Bebeteca de la ciudad, una biblioteca para bebés entre los espacios de arte y cultura.</small></div>
-        </a>
-        <div class="more">
-          <h3 class="label" data-en="More websites">Más sitios</h3>
-          <ul>
-            <li><span>Fondo de Mujeres Bolivia <small data-en="Design · 2023">Diseño · 2023</small></span></li>
-            <li><a href="https://casagaston.com/trabajando/" target="_blank" rel="noopener">Casa Gastón</a></li>
-            <li><a href="https://refugioestudiotaller.com/" target="_blank" rel="noopener">Refugio Estudio Taller</a></li>
-            <li><a href="https://www.tecmetric.com/" target="_blank" rel="noopener">TecMetric</a></li>
-            <li><a href="https://www.imagine.com.bo/" target="_blank" rel="noopener">Imagine Marketing Digital</a></li>
-            <li><span>Raquel Villar-Pérez</span></li>
-            <li><span>Solía Ser</span></li>
-          </ul>
-        </div>
-      </div>
+      <ul class="feat">
+        <li><a class="fr" href="https://granierortizwines.com/" target="_blank" rel="noopener">
+          <p class="n">Granier Ortiz</p>
+          <p class="d" data-en="Brand and website for the family's 100 years of winemaking and the launch of the Prestige Gran Reserva Principia.">Marca y sitio web para los 100 años de la familia en la vinicultura y el lanzamiento del Prestige Gran Reserva Principia.</p>
+          <span class="m" data-en="Brand · Website">Marca · Sitio web</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a class="fr" href="https://www.trendsetterbolivia.com/" target="_blank" rel="noopener">
+          <p class="n">Trendsetter Bolivia</p>
+          <p class="d" data-en="From a magazine to a national multiplatform outlet, with rigorous, fair coverage and stories that inform and delight.">De revista a medio multiplataforma nacional, con cobertura rigurosa y justa e historias que informan y deleitan.</p>
+          <span class="m" data-en="Design · Development · 2022">Diseño · Desarrollo · 2022</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </a></li>
+        <li><a class="fr" href="https://www.vivasantacruz.bo/" target="_blank" rel="noopener">
+          <p class="n">Santa Cruz de la Sierra</p>
+          <p class="d" data-en="A look at the city's Bebeteca, a baby library among the spaces that bring art and culture to Santa Cruz.">Una mirada a la Bebeteca de la ciudad, una biblioteca para bebés entre los espacios que llevan arte y cultura a Santa Cruz.</p>
+          <span class="m" data-en="Website">Sitio web</span>
+          <span class="ar" aria-hidden="true">↗</span>
+        </a></li>
+      </ul>
+
+      <h3 class="label cmp-h" data-en="More projects">Más proyectos</h3>
+      <ul class="cmp">
+        <li><div class="c"><span>Fondo de Mujeres Bolivia</span><small><span data-en="Design · 2023">Diseño · 2023</span><i></i></small></div></li>
+        <li><a class="c" href="https://casagaston.com/trabajando/" target="_blank" rel="noopener"><span>Casa Gastón</span><small><span data-en="Website">Sitio web</span><i aria-hidden="true">↗</i></small></a></li>
+        <li><a class="c" href="https://refugioestudiotaller.com/" target="_blank" rel="noopener"><span>Refugio Estudio Taller</span><small><span data-en="Website">Sitio web</span><i aria-hidden="true">↗</i></small></a></li>
+        <li><a class="c" href="https://www.tecmetric.com/" target="_blank" rel="noopener"><span>TecMetric</span><small><span data-en="Website">Sitio web</span><i aria-hidden="true">↗</i></small></a></li>
+        <li><a class="c" href="https://www.imagine.com.bo/" target="_blank" rel="noopener"><span>Imagine Marketing Digital</span><small><span data-en="Website">Sitio web</span><i aria-hidden="true">↗</i></small></a></li>
+        <li><div class="c"><span>Raquel Villar-Pérez</span><small><span data-en="Website">Sitio web</span><i></i></small></div></li>
+        <li><div class="c"><span>Solía Ser</span><small><span data-en="Website">Sitio web</span><i></i></small></div></li>
+        <li><a class="c" href="https://yapaofficial.com" target="_blank" rel="noopener"><span>YAPA</span><small><span data-en="Shopify store">Tienda Shopify</span><i aria-hidden="true">↗</i></small></a></li>
+        <li><div class="c"><span>VCiLAT Summit</span><small><span data-en="Interface components">Componentes de interfaz</span><i></i></small></div></li>
+        <li><div class="c"><span>Mini Golf Manía</span><small><span data-en="Brand identity">Identidad de marca</span><i></i></small></div></li>
+      </ul>
     </div>
   </section>
 
-  <section class="sec" id="servicios">
+  <section class="sec lime" id="servicios">
     <div class="wrap">
       <h2 class="label" data-en="Services">Servicios</h2>
-      <ul class="rows">
-        <li><h3 data-en="UX/UI for digital products">UX/UI para productos digitales</h3><p data-en="Flows and interfaces for platforms, apps and websites.">Flujos e interfaces para plataformas, apps y sitios web.</p></li>
-        <li><h3 data-en="Websites">Sitios web</h3><p data-en="Design and front-end development, from the first sketch to launch.">Diseño y desarrollo front-end, del primer boceto a la publicación.</p></li>
-        <li><h3 data-en="Accessibility and inclusion">Accesibilidad e inclusión</h3><p data-en="Contrast, structure and navigation that work for everyone.">Contraste, estructura y navegación que funcionan para todas las personas.</p></li>
-        <li><h3 data-en="User research and testing">Investigación y pruebas con usuarios</h3><p data-en="Conversations and tests with real users to decide with evidence.">Conversaciones y pruebas con personas reales para decidir con evidencia.</p></li>
+      <p class="sec-h" data-en="What I can do to help you reach your goals">Qué puedo hacer para ayudarte a lograr tus metas</p>
+      <ul class="svc">
+        <li>
+          <h3 data-en="Product design">Diseño de producto</h3>
+          <ul class="chips">
+            <li data-en="UX design">Diseño UX</li>
+            <li data-en="UI design">Diseño UI</li>
+            <li data-en="Design system">Sistema de diseño</li>
+            <li data-en="Responsive design">Diseño responsivo</li>
+            <li data-en="Prototyping">Prototipado</li>
+            <li data-en="User flows and wireframes">Flujos de usuario y wireframes</li>
+            <li data-en="User research and testing">Investigación y pruebas con usuarios</li>
+            <li data-en="Accessibility and inclusive design">Accesibilidad y diseño inclusivo</li>
+          </ul>
+        </li>
+        <li>
+          <h3 data-en="Web development">Desarrollo web</h3>
+          <ul class="chips">
+            <li data-en="Websites">Sitios web</li>
+            <li data-en="Landing pages">Landing pages</li>
+            <li data-en="Webflow development">Desarrollo en Webflow</li>
+            <li data-en="Shopify stores">Tiendas Shopify</li>
+            <li data-en="Custom solutions">Soluciones a medida</li>
+            <li data-en="Integrations">Integraciones</li>
+          </ul>
+        </li>
+        <li>
+          <h3>Branding</h3>
+          <ul class="chips">
+            <li>Branding</li>
+            <li data-en="Guidelines and brandbook">Guías y brandbook</li>
+            <li data-en="Identity design">Diseño de identidad</li>
+            <li data-en="Logo design">Diseño de logotipo</li>
+          </ul>
+        </li>
       </ul>
     </div>
   </section>
@@ -288,21 +301,32 @@ svg.logo{display:block;width:100%;height:auto}
       <div class="cols">
         <div class="c-text">
           <h2 class="label" data-en="About">Sobre mí</h2>
-          <p data-en="I believe digital accessibility and inclusive design are the foundation of a good product. I design and build websites for brands in Bolivia and work with teams around the world.">Creo que la accesibilidad digital y el diseño inclusivo son la base de un buen producto. Diseño y desarrollo sitios web para marcas de Bolivia y trabajo con equipos de todo el mundo.</p>
+          <p data-en="I'm Leyla, a digital product designer in La Paz, Bolivia. I believe digital accessibility and inclusive design are the foundation of a good product, not a layer added at the end.">Soy Leyla, diseñadora de productos digitales en La Paz, Bolivia. Creo que la accesibilidad digital y el diseño inclusivo son la base de un buen producto, no una capa que se agrega al final.</p>
+          <p data-en="I combine design and code: I research, design, test with users and build the front end. What gets designed reaches production without losing quality.">Combino diseño y código: investigo, diseño, pruebo con usuarios y construyo el front-end. Lo que se diseña llega a producción sin perder calidad.</p>
         </div>
-        <div class="c-a">
-          <h3 data-en="Focus">Enfoque</h3>
-          <p class="s" data-en="UX/UI design">Diseño UX/UI</p>
-          <p class="s" data-en="Web design">Diseño web</p>
-          <p class="s" data-en="Front-end development">Desarrollo front-end</p>
-        </div>
-        <div class="c-b">
+        <div class="c-exp">
           <h3 data-en="Experience">Experiencia</h3>
-          <p class="s">Senior UX/UI Designer, Crehana</p>
-          <p class="s m" data-en="2025–2026 · User research and testing on its live learning platform">2025–2026 · Investigación y pruebas con usuarios en su plataforma de aprendizaje en línea</p>
+          <ul class="exp">
+            <li><span class="per" data-en="Present">Actualidad</span><div><b>Koinor</b><p data-en="Digital product designer. Digital products, websites and interactive proposals for clients in Bolivia and abroad.">Diseñadora de productos digitales. Productos digitales, sitios web y propuestas interactivas para clientes de Bolivia y del exterior.</p></div></li>
+            <li><span class="per">2025–2026</span><div><b>Crehana</b><p data-en="Senior UX/UI Designer. User research and testing on its live learning platform.">Senior UX/UI Designer. Investigación y pruebas con usuarios en su plataforma de aprendizaje en línea.</p></div></li>
+            <li><span class="per">2022–2024</span><div><b data-en="Web design and development">Diseño y desarrollo web</b><p data-en="Sites for media, brands and studios, such as Trendsetter Bolivia and Fondo de Mujeres Bolivia.">Sitios para medios, marcas y estudios, como Trendsetter Bolivia y Fondo de Mujeres Bolivia.</p></div></li>
+          </ul>
         </div>
       </div>
-      <p class="clients"><b data-en="Worked with">Han confiado en mí</b> Trendsetter Bolivia · Refugio Estudio Taller · Edugrapes · Casa Gastón · Ektimo Events · Imagine · Mundo Dental · TecMetric · Pablo Escobar Law · Táctico Studio</p>
+
+      <h3 class="label prin-h" data-en="Principles">Principios</h3>
+      <div class="prin">
+        <div><h4 data-en="Accessible from the start">Accesible desde el inicio</h4><p data-en="Contrast, structure and keyboard use are solved in the design, not at the end.">Contraste, estructura y uso con teclado se resuelven en el diseño, no al final.</p></div>
+        <div><h4 data-en="Design and code together">Diseño y código juntos</h4><p data-en="Whoever designs also understands how it gets built, and it shows in the result.">Quien diseña también entiende cómo se construye, y se nota en el resultado.</p></div>
+        <div><h4 data-en="Decisions backed by evidence">Decisiones con evidencia</h4><p data-en="Conversations and tests with real people before building.">Conversaciones y pruebas con personas reales antes de construir.</p></div>
+      </div>
+
+      <dl class="facts">
+        <dt data-en="Tools">Herramientas</dt><dd>Webflow · Shopify · WordPress · Vercel · Supabase · GitHub</dd>
+        <dt data-en="Languages">Idiomas</dt><dd data-en="Spanish, English">Español, inglés</dd>
+        <dt data-en="Working">Modalidad</dt><dd data-en="Remote from La Paz, Bolivia (UTC−4)">Remoto desde La Paz, Bolivia (UTC−4)</dd>
+        <dt data-en="Also worked with">También he trabajado con</dt><dd>Oxfam · SCOBOL · Khespy · <a href="https://www.edugrapes.com/" target="_blank" rel="noopener">Edugrapes</a> · <a href="https://ektimoevents.com/" target="_blank" rel="noopener">Ektimo Events</a> · <a href="https://www.mundodental.com.bo/" target="_blank" rel="noopener">Mundo Dental</a> · <a href="https://www.pabloescobarlaw.com/" target="_blank" rel="noopener">Pablo Escobar Law</a> · <a href="https://tacticostudio.com/" target="_blank" rel="noopener">Táctico Studio</a></dd>
+      </dl>
     </div>
   </section>
 </main>
@@ -312,37 +336,15 @@ svg.logo{display:block;width:100%;height:auto}
     <div class="ct">
       <div class="ct-main">
         <h2 class="ct-h" data-en="Let's break the ice">Rompamos el hielo</h2>
-        <form id="contact-form" class="form">
-          <div class="f-row">
-            <div class="f"><label class="sr" for="f-name" data-en="Name">Nombre</label><input id="f-name" type="text" autocomplete="name" required placeholder="Nombre" data-ph-en="Name"></div>
-            <div class="f"><label class="sr" for="f-email" data-en="Email">Correo</label><input id="f-email" type="email" autocomplete="email" required placeholder="Correo" data-ph-en="Email"></div>
-          </div>
-          <div class="f"><label class="sr" for="f-msg" data-en="Your goal, budget and timeline">Tu objetivo, presupuesto y plazo</label><textarea id="f-msg" rows="3" required placeholder="¿Cuál es tu objetivo, presupuesto y plazo?" data-ph-en="What's your goal, budget and timeline?"></textarea></div>
-          <div class="f"><label class="sr" for="f-svc" data-en="How can I help you?">¿En qué puedo ayudarte?</label>
-            <select id="f-svc" required>
-              <option value="" data-en="How can I help you?">¿En qué puedo ayudarte?</option>
-              <option value="ux" data-en="UX/UI for a digital product">UX/UI para un producto digital</option>
-              <option value="web" data-en="Website design and development">Diseño y desarrollo de un sitio web</option>
-              <option value="a11y" data-en="Accessibility review">Revisión de accesibilidad</option>
-              <option value="research" data-en="User research and testing">Investigación y pruebas con usuarios</option>
-              <option value="other" data-en="Something else">Otro tema</option>
-            </select>
-          </div>
-          <button class="send" type="submit" data-en="Send request">Enviar solicitud</button>
-        </form>
-        <div class="sent" id="sent" tabindex="-1" role="status" hidden>
-          <p class="sent-t" data-en="Your message is ready">Tu mensaje está listo</p>
-          <p class="sent-n" data-en="Copy it and send it to leylamanjon@gmail.com, or open it in your email app.">Cópialo y envíalo a leylamanjon@gmail.com, o ábrelo en tu app de correo.</p>
-          <pre class="sent-b" id="sent-body"></pre>
-          <div class="sent-a">
-            <button class="send" type="button" id="copy-msg" data-en="Copy message">Copiar mensaje</button>
-            <a class="alt" id="mailto" href="mailto:leylamanjon@gmail.com" data-en="Open in email app">Abrir en mi correo</a>
-          </div>
-        </div>
-        <div class="ct-mail">
-          <h3 class="ct-h2" data-en="Prefer email?">¿Prefieres correo?</h3>
+        <p class="ct-p" data-en="Tell me about your project, goal and timeline. I quote per project and reply by email or WhatsApp.">Cuéntame tu proyecto, objetivo y plazo. Cotizo por proyecto y respondo por correo o WhatsApp.</p>
+        <div class="ct-row">
+          <h3 class="ct-h2" data-en="Email">Correo</h3>
           <a class="mail" id="mail" href="mailto:leylamanjon@gmail.com">leylamanjon@gmail.com</a>
           <button class="copy-mail" type="button" id="copy-mail" data-en="Copy address">Copiar correo</button>
+        </div>
+        <div class="ct-row">
+          <h3 class="ct-h2">WhatsApp</h3>
+          <a class="mail" id="wa" href="https://wa.me/59177578343?text=Hola%20Leyla%2C%20vi%20tu%20portafolio%20y%20me%20gustar%C3%ADa%20hablar%20de%20un%20proyecto." target="_blank" rel="noopener">+591 77578343 ↗</a>
         </div>
       </div>
       <div class="ct-iso" aria-hidden="true"><svg viewBox="0 0 419 419" focusable="false"><use href="#lt-iso"/></svg></div>
@@ -370,11 +372,17 @@ svg.logo{display:block;width:100%;height:auto}
   var els = [].slice.call(document.querySelectorAll('[data-en]'));
   els.forEach(function (e) { e.setAttribute('data-es', e.textContent); });
   var btns = { es: document.getElementById('lang-es'), en: document.getElementById('lang-en') };
+  var wa = document.getElementById('wa');
+  var WA = {
+    es: 'https://wa.me/59177578343?text=' + encodeURIComponent('Hola Leyla, vi tu portafolio y me gustaría hablar de un proyecto.'),
+    en: 'https://wa.me/59177578343?text=' + encodeURIComponent('Hi Leyla, I saw your portfolio and I\'d like to talk about a project.')
+  };
   function set(l) {
     document.documentElement.lang = l;
     els.forEach(function (e) { e.textContent = e.getAttribute('data-' + l); });
     btns.es.setAttribute('aria-pressed', String(l === 'es'));
     btns.en.setAttribute('aria-pressed', String(l === 'en'));
+    wa.setAttribute('href', WA[l]);
     try { localStorage.setItem('lt-lang', l); } catch (_) {}
   }
   btns.es.addEventListener('click', function () { set('es'); });
@@ -382,59 +390,26 @@ svg.logo{display:block;width:100%;height:auto}
   var s = null;
   try { s = localStorage.getItem('lt-lang'); } catch (_) {}
   if (s === 'en') set('en');
-})();
-</script>
-<script>
-(function () {
-  var L = function () { return document.documentElement.lang === 'en' ? 'en' : 'es'; };
-  var phs = [].slice.call(document.querySelectorAll('[data-ph-en]'));
-  phs.forEach(function (e) { e.setAttribute('data-ph-es', e.getAttribute('placeholder')); });
-  function syncPh() { phs.forEach(function (e) { e.setAttribute('placeholder', e.getAttribute('data-ph-' + L())); }); }
-  syncPh();
-  ['lang-es', 'lang-en'].forEach(function (id) { document.getElementById(id).addEventListener('click', syncPh); });
 
   var EMAIL = 'leylamanjon@gmail.com';
   var T = { es: { ok: 'Copiado', sel: 'Selecciona y copia con Ctrl+C' }, en: { ok: 'Copied', sel: 'Select and copy with Ctrl+C' } };
-  function flash(btn, msg) {
-    btn.textContent = msg;
-    setTimeout(function () { btn.textContent = btn.getAttribute('data-' + L()); }, 2200);
+  var cm = document.getElementById('copy-mail');
+  var mailEl = document.getElementById('mail');
+  function flash(msg) {
+    cm.textContent = msg;
+    setTimeout(function () { cm.textContent = cm.getAttribute('data-' + document.documentElement.lang); }, 2200);
   }
-  function copy(text, btn, el) {
+  cm.addEventListener('click', function () {
+    var l = document.documentElement.lang === 'en' ? 'en' : 'es';
     function fallback() {
-      var r = document.createRange(); r.selectNodeContents(el);
-      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
-      flash(btn, T[L()].sel);
+      var r = document.createRange(); r.selectNodeContents(mailEl);
+      var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+      flash(T[l].sel);
     }
     if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(text).then(function () { flash(btn, T[L()].ok); }, fallback);
+      navigator.clipboard.writeText(EMAIL).then(function () { flash(T[l].ok); }, fallback);
     } else { fallback(); }
-  }
-
-  var form = document.getElementById('contact-form');
-  var sent = document.getElementById('sent');
-  var body = document.getElementById('sent-body');
-  var mt = document.getElementById('mailto');
-  var cm = document.getElementById('copy-msg');
-  form.addEventListener('submit', function (e) {
-    e.preventDefault();
-    var l = L();
-    var name = document.getElementById('f-name').value.trim();
-    var mail = document.getElementById('f-email').value.trim();
-    var goal = document.getElementById('f-msg').value.trim();
-    var sel = document.getElementById('f-svc');
-    var svc = sel.options[sel.selectedIndex].textContent;
-    var msg = l === 'en'
-      ? 'Hi Leyla, I\'m ' + name + ' (' + mail + ').\nI\'m interested in: ' + svc + '.\nGoal, budget and timeline: ' + goal
-      : 'Hola Leyla, soy ' + name + ' (' + mail + ').\nMe interesa: ' + svc + '.\nObjetivo, presupuesto y plazo: ' + goal;
-    var subj = l === 'en' ? 'Project inquiry' : 'Consulta de proyecto';
-    body.textContent = msg;
-    mt.setAttribute('href', 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(msg));
-    sent.hidden = false;
-    sent.focus();
   });
-  cm.addEventListener('click', function () { copy(body.textContent, cm, body); });
-  var cmail = document.getElementById('copy-mail');
-  cmail.addEventListener('click', function () { copy(EMAIL, cmail, document.getElementById('mail')); });
 })();
 </script>
 </body>
