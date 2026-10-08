@@ -1,0 +1,441 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Portafolio Leyla Tipa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..125,400..700&display=swap" rel="stylesheet">
+<style>
+/* Concepto: estudio de una sola persona. El logotipo pixelado de Leyla es el único gesto grande (hero y cierre); todo lo demás es pequeño, preciso y accesible, con la estructura de la web Highfi de Koinor: cabecera centrada fija, cuadrícula despareja, líneas finas, sin tarjetas con borde. */
+:root{
+  --paper:#F7F7F7;
+  --surface:#E7E7E7;
+  --ink:#2B2B2B;
+  --mute:#5E5E5E;
+  --line:#D9D9D9;
+  --blue:#004AFF;
+  --lime:#E9FC7C;
+  --font:'Archivo',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;
+  color-scheme:light;
+}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--paper);color:var(--ink);font:400 13px/1.6 var(--font);-webkit-font-smoothing:antialiased;margin:0}
+*,*::before,*::after{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid var(--blue);outline-offset:3px}
+.wrap{width:100%;max-width:1160px;margin-inline:auto;padding-inline:clamp(16px,4vw,40px)}
+.skip{position:absolute;left:16px;top:-60px;background:var(--ink);color:var(--paper);padding:10px 14px;z-index:30;font-size:12px;font-weight:500}
+.skip:focus{top:calc(env(safe-area-inset-top,0px) + 12px)}
+svg.logo{display:block;width:100%;height:auto}
+
+/* Cabecera */
+.head{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--paper);border-bottom:1px solid var(--line)}
+.head .wrap{display:flex;flex-direction:column;align-items:center;gap:8px;padding-block:14px 8px}
+.head .mark{display:block;width:92px;color:var(--blue)}
+.nav{display:flex;flex-wrap:wrap;justify-content:center;gap:0 22px;font-size:12px;color:var(--mute)}
+.nav a{padding:6px 0;transition:color .2s}
+.nav a:hover{color:var(--ink)}
+
+/* Hero */
+.hero{padding-block:48px 72px}
+.hero h1{margin:0;color:var(--blue)}
+.hero-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:28px 16px;margin-top:44px;align-items:end}
+.lead{grid-column:span 6;margin:0;font-size:clamp(18px,2.2vw,24px);line-height:1.3;font-weight:500;letter-spacing:-0.015em;text-wrap:balance;min-width:0}
+.meta{grid-column:9 / span 4;display:flex;flex-direction:column;align-items:flex-start;gap:14px;font-size:12px;color:var(--mute);min-width:0}
+.meta p{margin:0}
+.pill{display:inline-flex;align-items:center;gap:8px;background:var(--lime);color:var(--ink);padding:7px 14px;border-radius:999px;font-size:12px;font-weight:500;transition:background .2s,color .2s}
+.pill i{width:6px;height:6px;border-radius:50%;background:var(--ink)}
+.pill:hover{background:var(--ink);color:var(--lime)}
+.pill:hover i{background:var(--lime)}
+
+/* Secciones */
+.sec{border-top:1px solid var(--line);padding-block:64px}
+.label{font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute);margin:0 0 24px}
+
+/* Trabajo */
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:56px 16px;align-items:start}
+.p1{grid-column:span 7}
+.p2{grid-column:span 5}
+.p3{grid-column:span 5}
+.more{grid-column:8 / span 5;min-width:0}
+.tile{position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:24px;padding:14px;width:100%;overflow:hidden}
+.p1 .tile{aspect-ratio:7/5}
+.p2 .tile,.p3 .tile{aspect-ratio:1/1}
+.tile .tag{font-size:11px;font-weight:500;letter-spacing:0.07em;text-transform:uppercase;padding-right:28px}
+.tile .ar{position:absolute;top:10px;right:14px;font-size:17px;line-height:1;transition:transform .25s}
+.tile .nm{font-weight:600;font-stretch:112%;font-size:clamp(24px,3.6vw,46px);line-height:1;letter-spacing:-0.035em;text-wrap:balance;margin:0}
+.t-blue{background:var(--blue);color:#fff}
+.t-lime{background:var(--lime);color:var(--ink)}
+.t-ink{background:var(--ink);color:var(--lime)}
+.proj:hover .ar,.proj:focus-visible .ar{transform:translate(3px,-3px)}
+.cap{display:flex;flex-direction:column;gap:2px;margin-top:12px}
+.cap b{font-weight:500;font-size:13px;transition:color .2s}
+.cap small{font-size:12px;color:var(--mute);max-width:46ch}
+.proj:hover .cap b{color:var(--blue)}
+.more ul{list-style:none;margin:0;padding:0}
+.more li{border-top:1px solid var(--line)}
+.more li:last-child{border-bottom:1px solid var(--line)}
+.more li a,.more li span{display:flex;justify-content:space-between;gap:12px;padding:10px 0;font-size:13px}
+.more li small{color:var(--mute);font-size:12px}
+.more li a{transition:color .2s}
+.more li a:hover{color:var(--blue)}
+
+/* Servicios */
+.rows{list-style:none;margin:0;padding:0}
+.rows li{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px 16px;padding:16px 0;border-top:1px solid var(--line)}
+.rows li:last-child{border-bottom:1px solid var(--line)}
+.rows h3{grid-column:span 4;margin:0;font-size:14px;font-weight:600;letter-spacing:-0.005em}
+.rows p{grid-column:6 / span 7;margin:0;color:var(--mute);max-width:56ch}
+
+/* Proceso */
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px 16px;list-style:none;margin:0;padding:0}
+.steps li{border-top:2px solid var(--ink);padding-top:12px}
+.steps em{display:block;font-style:normal;font-size:11px;font-weight:600;color:var(--blue);letter-spacing:0.06em;margin-bottom:18px}
+.steps h3{margin:0 0 6px;font-size:14px;font-weight:600}
+.steps p{margin:0;color:var(--mute);max-width:30ch}
+
+/* Sobre mí */
+.cols{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:40px 16px}
+.c-text{grid-column:span 6;min-width:0}
+.c-text p{margin:0;font-size:clamp(15px,1.6vw,17px);line-height:1.5;max-width:52ch}
+.c-a{grid-column:8 / span 2;min-width:0}
+.c-b{grid-column:10 / span 3;min-width:0}
+.cols h3{margin:0 0 10px;font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:var(--mute)}
+.cols p.s{margin:0}
+.cols p.s + p.s{margin-top:4px}
+.cols p.m{color:var(--mute)}
+.clients{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);color:var(--mute);line-height:1.9}
+.clients b{color:var(--ink);font-weight:500;margin-right:14px}
+
+/* Contacto y pie */
+.blue{background:var(--blue);color:#fff}
+.blue a:focus-visible,.blue button:focus-visible,.blue input:focus-visible,.blue textarea:focus-visible,.blue select:focus-visible{outline:2px solid var(--lime);outline-offset:3px}
+.ct{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:56px 16px;align-items:center;padding-block:96px 56px}
+.ct-main{grid-column:span 7;min-width:0}
+.ct-iso{grid-column:9 / span 4;color:var(--lime)}
+.ct-iso svg{display:block;width:100%;height:auto}
+.ct-h{margin:0 0 24px;color:var(--lime);font-size:clamp(20px,2.4vw,26px);font-weight:600;letter-spacing:-0.02em}
+.form{display:flex;flex-direction:column;gap:12px;max-width:640px}
+.f-row{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.f{min-width:0}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.form input,.form textarea,.form select{display:block;width:100%;font:inherit;font-size:13px;color:#fff;background:transparent;border:1px solid #DCE6FF;border-radius:4px;padding:0 12px;height:44px}
+.form textarea{height:auto;min-height:96px;padding:12px;resize:vertical;line-height:1.5}
+.form select{appearance:none;-webkit-appearance:none;cursor:pointer;padding-right:36px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23E9FC7C'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center}
+.form option{color:#2B2B2B;background:#fff}
+.form ::placeholder{color:#DCE6FF;opacity:1}
+.send{align-self:flex-start;height:44px;padding:0 22px;border-radius:999px;background:var(--lime);color:var(--ink);font-size:13px;font-weight:600;transition:background .2s}
+.send:hover{background:#fff}
+.sent{margin-top:24px;max-width:640px;border:1px solid var(--lime);border-radius:4px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.sent p{margin:0}
+.sent-t{color:var(--lime);font-weight:600}
+.sent-n{color:#DCE6FF}
+.sent-b{margin:0;white-space:pre-wrap;font:inherit;color:#fff;background:rgba(0,0,0,.2);padding:12px;border-radius:4px}
+.sent-a{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center}
+.alt{color:var(--lime);border-bottom:1px solid var(--lime);padding-bottom:2px;font-weight:500}
+.ct-mail{margin-top:56px}
+.ct-h2{margin:0 0 8px;color:var(--lime);font-size:clamp(18px,2vw,22px);font-weight:600;letter-spacing:-0.01em}
+.mail{display:inline-block;font-size:clamp(20px,3vw,32px);letter-spacing:-0.02em;overflow-wrap:anywhere;border-bottom:1px solid transparent;transition:border-color .2s}
+.mail:hover{border-color:#fff}
+.copy-mail{display:block;margin-top:8px;color:var(--lime);font-size:12px;font-weight:500;text-decoration:underline;text-underline-offset:4px;padding:6px 0}
+.foot .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:8px 24px;padding-block:20px 28px;font-size:12px;color:var(--lime);border-top:1px solid rgba(233,252,124,.35)}
+.soc{display:flex;gap:18px}
+.soc a{padding:6px 0}
+.soc a:hover{text-decoration:underline;text-underline-offset:4px}
+.lang{display:flex;gap:4px;align-items:center}
+.lang button{padding:6px 8px;font-size:12px;font-weight:500;color:#DCE6FF;min-height:32px}
+.lang button[aria-pressed="true"]{color:var(--lime);text-decoration:underline;text-underline-offset:4px}
+.lang i{font-style:normal;color:#8FA9FF}
+
+@media (max-width:860px){
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .c-a{grid-column:1 / span 5}
+  .c-b{grid-column:6 / span 7}
+  .c-text{grid-column:1 / -1}
+  .rows h3{grid-column:1 / -1}
+  .rows p{grid-column:1 / -1}
+  .lead{grid-column:1 / -1}
+  .meta{grid-column:1 / -1}
+  .ct-main{grid-column:1 / -1}
+  .ct-iso{grid-column:1 / span 5}
+}
+@media (max-width:640px){
+  .hero{padding-block:32px 48px}
+  .hero-row{margin-top:32px}
+  .sec{padding-block:48px}
+  .p1,.p2,.p3,.more{grid-column:1 / -1}
+  .p1 .tile{aspect-ratio:4/3}
+  .p2 .tile,.p3 .tile{aspect-ratio:4/3}
+  .c-a,.c-b{grid-column:1 / -1}
+  .steps{grid-template-columns:1fr}
+  .ct{padding-block:64px 32px}
+  .ct-iso{grid-column:1 / -1;max-width:220px}
+  .f-row{grid-template-columns:1fr}
+  .ct-mail{margin-top:40px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="lt-logo" viewBox="0 0 975 228"><path d="M639.477 41.4555H604.891C603.108 41.4555 601.668 40.001 601.668 38.199V3.25652C601.668 1.45458 600.228 0 598.445 0H584.381C582.597 0 581.157 1.45458 581.157 3.25652V38.199C581.157 40.001 579.718 41.4555 577.934 41.4555H563.87C562.086 41.4555 560.646 42.9101 560.646 44.7121V56.7504C560.646 59.7464 558.24 62.1779 555.274 62.1779H545.841C542.875 62.1779 540.469 59.7464 540.469 56.7504V44.7121C540.469 42.9101 539.029 41.4555 537.245 41.4555H461.627C459.844 41.4555 458.404 42.9101 458.404 44.7121V56.7504C458.404 59.7464 455.997 62.1779 453.032 62.1779H441.117C439.333 62.1779 437.893 63.6325 437.893 65.4344V79.6437C437.893 81.4457 439.333 82.9002 441.117 82.9002H455.181C456.964 82.9002 458.404 81.4457 458.404 79.6437V67.6054C458.404 64.6094 460.811 62.1779 463.776 62.1779H535.097C538.062 62.1779 540.469 64.6094 540.469 67.6054V79.6437C540.469 81.4457 539.029 82.9002 537.245 82.9002H482.149C480.365 82.9002 478.926 84.3548 478.926 86.1568V98.195C478.926 101.191 476.519 103.623 473.553 103.623H441.117C439.333 103.623 437.893 105.077 437.893 106.879V139.651C437.893 142.647 435.487 145.078 432.521 145.078H400.084C398.301 145.078 396.861 143.624 396.861 141.822V3.25652C396.861 1.45458 395.421 0 393.638 0H338.541C336.757 0 335.318 1.45458 335.318 3.25652V17.4658C335.318 19.2678 336.757 20.7223 338.541 20.7223H373.127C374.91 20.7223 376.35 22.1769 376.35 23.9789V141.822C376.35 143.624 374.91 145.078 373.127 145.078H338.541C336.757 145.078 335.318 146.533 335.318 148.335V162.544C335.318 164.346 336.757 165.8 338.541 165.8H434.67C436.454 165.8 437.893 164.346 437.893 162.544V150.506C437.893 147.51 440.3 145.078 443.265 145.078H447.66C453.591 145.078 458.404 149.941 458.404 155.933V162.544C458.404 164.346 459.844 165.8 461.627 165.8H516.724C518.508 165.8 519.947 164.346 519.947 162.544V150.506C519.947 147.51 522.354 145.078 525.319 145.078H537.235C539.018 145.078 540.458 146.533 540.458 148.335V162.544C540.458 164.346 541.898 165.8 543.681 165.8H557.746C559.529 165.8 560.969 164.346 560.969 162.544V67.6054C560.969 64.6094 563.376 62.1779 566.341 62.1779H577.923C579.707 62.1779 581.147 63.6325 581.147 65.4344V162.555C581.147 164.357 582.586 165.811 584.37 165.811H639.466C641.25 165.811 642.69 164.357 642.69 162.555V148.346C642.69 146.544 641.25 145.089 639.466 145.089H601.657V65.4344C601.657 63.6325 603.097 62.1779 604.881 62.1779H639.466C641.25 62.1779 642.69 60.7233 642.69 58.9214V44.7121C642.69 42.9101 641.25 41.4555 639.466 41.4555H639.477ZM540.469 121.099C540.469 122.901 539.029 124.356 537.245 124.356H523.181C521.398 124.356 519.958 125.81 519.958 127.612V139.651C519.958 142.647 517.551 145.078 514.586 145.078H469.159C463.228 145.078 458.415 140.215 458.415 134.223V127.612C458.415 125.81 459.855 124.356 461.638 124.356H475.702C477.486 124.356 478.926 122.901 478.926 121.099V109.061C478.926 106.065 481.332 103.633 484.298 103.633H537.245C539.029 103.633 540.469 105.088 540.469 106.89V121.099Z" fill="currentColor"/><path d="M335.318 103.633V44.712C335.318 42.9101 333.878 41.4555 332.095 41.4555H318.03C316.247 41.4555 314.807 42.9101 314.807 44.712V118.939C314.807 121.935 312.4 124.367 309.435 124.367H297.52C295.736 124.367 294.296 125.821 294.296 127.623V155.456C294.296 161.176 289.709 165.822 284.036 165.822C278.363 165.822 273.775 161.187 273.775 155.456V127.623C273.775 125.821 272.335 124.367 270.552 124.367H258.636C255.671 124.367 253.264 121.935 253.264 118.939V44.712C253.264 42.9101 251.824 41.4555 250.041 41.4555H235.977C234.193 41.4555 232.753 42.9101 232.753 44.712V121.11C232.753 122.912 234.193 124.367 235.977 124.367H247.892C250.857 124.367 253.264 126.798 253.264 129.794V162.566C253.264 164.368 254.704 165.822 256.487 165.822H268.403C271.368 165.822 273.775 168.254 273.775 171.25V201.85C273.775 204.846 271.368 207.278 268.403 207.278H235.966C234.182 207.278 232.742 208.732 232.742 210.534V224.743C232.742 226.545 234.182 228 235.966 228H270.552C272.335 228 273.775 226.545 273.775 224.743V212.705C273.775 209.709 276.182 207.278 279.147 207.278H291.062C292.846 207.278 294.286 205.823 294.286 204.021V171.25C294.286 168.254 296.692 165.822 299.658 165.822H311.573C313.357 165.822 314.796 164.368 314.796 162.566V129.794C314.796 126.798 317.203 124.367 320.169 124.367H332.084C333.868 124.367 335.307 122.912 335.307 121.11V103.644L335.318 103.633Z" fill="currentColor"/><path d="M190.872 146.229C180.632 151.342 150.527 150.864 140.137 145.871C127.652 139.868 125.289 125.821 125.579 113.088H221.471C222.621 113.088 222.342 107.476 222.299 106.282C221.117 71.7955 211.307 48.012 173.649 45.2548C137.795 42.6279 109.011 52.4735 105.766 92.8001C103.779 117.43 105.122 150.321 129.941 162.685C146.842 171.098 181.094 171.478 198.371 164.118C212.994 157.887 221.837 144.069 223.341 128.285H202.927C201.154 135.439 197.727 142.799 190.872 146.229ZM144.274 66.5851C153.149 63.8279 173.745 63.8279 182.609 66.5851C195.545 70.6123 200.585 82.4769 201.315 95.1773H126.105C126.438 82.4878 131.456 70.5689 144.274 66.5851Z" fill="currentColor"/><path d="M99.3523 145.089H61.5432V3.25652C61.5432 1.45458 60.1034 0 58.3199 0H3.22328C1.43973 0 0 1.45458 0 3.25652V17.4658C0 19.2678 1.43973 20.7223 3.22328 20.7223H37.8091C39.5926 20.7223 41.0324 22.1769 41.0324 23.9789V145.078H3.22328C1.43973 145.078 0 146.533 0 148.335V162.544C0 164.346 1.43973 165.8 3.22328 165.8H99.3523C101.136 165.8 102.576 164.346 102.576 162.544V148.335C102.576 146.533 101.136 145.078 99.3523 145.078V145.089Z" fill="currentColor"/><path d="M974.194 146.088H965.867C963.342 109.994 978.341 55.719 929.992 46.3728C903.776 41.3035 864.259 44.332 860.573 77.9719C860.23 81.1199 860.821 84.7998 860.573 88.0129H878.839C879.945 80.0995 880.386 72.5444 887.842 68.0721C896.556 62.8291 921.751 62.9159 931.185 66.3461C943.863 70.9378 945.099 83.1172 945.99 95.0795H894.697C871.307 96.7295 856.652 107.867 856.781 132.823C856.953 166.962 885.468 170.935 912.973 168.916C926.49 167.928 936.686 162.24 942.058 149.453C942.703 147.911 942.327 145.284 944.647 145.523C945.12 145.566 945.99 146.044 945.99 146.37V155.597C945.99 157.464 948.784 162.935 950.632 163.933C951.062 164.161 954.629 165.638 954.854 165.638H974.194C974.248 165.638 975 164.878 975 164.823V146.913C975 146.858 974.248 146.098 974.194 146.098V146.088ZM930.153 146.109C919.517 151.005 889.39 153.621 880.966 144.21C875.873 138.511 875.605 124.627 880.698 118.95C884.662 114.521 893.258 113.327 898.952 112.969C914.273 112.013 930.562 113.729 945.98 112.99C945.378 126.31 943.401 140.009 930.143 146.12L930.153 146.109Z" fill="currentColor"/><path d="M696.723 145.089C694.94 145.089 693.5 143.634 693.5 141.832V65.4343C693.5 63.6324 692.06 62.1778 690.277 62.1778H678.361C675.396 62.1778 672.989 59.7463 672.989 56.7503V44.712C672.989 42.9101 671.549 41.4555 669.766 41.4555H655.702C653.918 41.4555 652.478 42.9101 652.478 44.712V58.9213C652.478 60.7232 653.918 62.1778 655.702 62.1778H667.617C670.582 62.1778 672.989 64.6094 672.989 67.6054V141.832C672.989 143.634 671.549 145.089 669.766 145.089H655.702C653.918 145.089 652.478 146.544 652.478 148.345V162.555C652.478 164.357 653.918 165.811 655.702 165.811H710.798C712.582 165.811 714.021 164.357 714.021 162.555V148.345C714.021 146.544 712.582 145.089 710.798 145.089H696.723Z" fill="currentColor"/><path d="M842.641 62.1778H830.725C827.76 62.1778 825.353 59.7463 825.353 56.7503V44.712C825.353 42.9101 823.913 41.4555 822.13 41.4555H767.033C765.25 41.4555 763.81 42.9101 763.81 44.712V56.7503C763.81 59.7463 761.403 62.1778 758.438 62.1778H746.522C744.739 62.1778 743.299 60.7232 743.299 58.9213V44.712C743.299 42.9101 741.859 41.4555 740.076 41.4555H726.011C724.228 41.4555 722.788 42.9101 722.788 44.712V224.733C722.788 226.535 724.228 227.989 726.011 227.989H740.076C741.859 227.989 743.299 226.535 743.299 224.733V148.335C743.299 146.533 744.739 145.078 746.522 145.078H758.438C761.403 145.078 763.81 147.51 763.81 150.506V162.544C763.81 164.346 765.25 165.8 767.033 165.8H822.13C823.913 165.8 825.353 164.346 825.353 162.544V150.506C825.353 147.51 827.76 145.078 830.725 145.078H842.641C844.424 145.078 845.864 143.623 845.864 141.822V65.4343C845.864 63.6324 844.424 62.1778 842.641 62.1778ZM825.353 139.661C825.353 142.657 822.946 145.089 819.981 145.089H769.182C766.217 145.089 763.81 142.657 763.81 139.661V127.623C763.81 125.821 762.37 124.367 760.587 124.367H746.522C744.739 124.367 743.299 122.912 743.299 121.11V86.1676C743.299 84.3656 744.739 82.911 746.522 82.911H760.587C762.37 82.911 763.81 81.4565 763.81 79.6545V67.6162C763.81 64.6202 766.217 62.1887 769.182 62.1887H819.981C822.946 62.1887 825.353 64.6202 825.353 67.6162V139.661Z" fill="currentColor"/><path d="M690.276 0H676.212C674.432 0 672.989 1.458 672.989 3.25652V17.4658C672.989 19.2644 674.432 20.7223 676.212 20.7223H690.276C692.057 20.7223 693.5 19.2644 693.5 17.4658V3.25652C693.5 1.458 692.057 0 690.276 0Z" fill="currentColor"/></symbol>
+  <symbol id="lt-iso" viewBox="0 0 419 419"><path d="M279.333 7.35088V34.3041C279.333 41.0669 284.822 46.5556 291.585 46.5556H318.538C322.605 46.5556 325.889 49.8389 325.889 53.9064V80.8596C325.889 87.6225 331.378 93.1111 338.14 93.1111H365.094C369.161 93.1111 372.444 96.3945 372.444 100.462V127.415C372.444 134.178 377.933 139.667 384.696 139.667H411.649C415.717 139.667 419 142.95 419 147.018L419 271.982C419 276.05 415.717 279.333 411.649 279.333H384.696C377.933 279.333 372.444 284.822 372.444 291.585V318.538C372.444 322.605 369.161 325.889 365.094 325.889H338.14C331.378 325.889 325.889 331.378 325.889 338.14V365.094C325.889 369.161 322.605 372.444 318.538 372.444H291.585C284.822 372.444 279.333 377.933 279.333 384.696V411.649C279.333 415.717 276.05 419 271.982 419H240.129C236.061 419 232.778 415.717 232.778 411.649V379.795C232.778 375.728 236.061 372.444 240.129 372.444H267.082C273.845 372.444 279.333 366.956 279.333 360.193V333.24C279.333 329.172 282.617 325.889 286.684 325.889H313.637C320.4 325.889 325.889 320.4 325.889 313.637V286.684C325.889 282.617 329.172 279.333 333.24 279.333H360.193C366.956 279.333 372.444 273.845 372.444 267.082L372.444 151.918C372.444 145.155 366.956 139.667 360.193 139.667H333.24C329.172 139.667 325.889 136.383 325.889 132.316V105.363C325.889 98.5998 320.4 93.1111 313.637 93.1111L286.684 93.1111C282.617 93.1111 279.333 89.8277 279.333 85.7602V58.807C279.333 52.0442 273.845 46.5556 267.082 46.5556L151.918 46.5556C145.155 46.5556 139.667 52.0442 139.667 58.807V85.7602C139.667 89.8277 136.383 93.1111 132.316 93.1111H105.363C98.5998 93.1111 93.1111 98.5998 93.1111 105.363V132.316C93.1111 136.383 89.8277 139.667 85.7603 139.667H58.807C52.0442 139.667 46.5555 145.155 46.5555 151.918L46.5555 267.082C46.5555 273.845 52.0442 279.333 58.807 279.333H85.7603C89.8277 279.333 93.1111 282.617 93.1111 286.684L93.1111 313.637C93.1111 320.4 98.5998 325.889 105.363 325.889H139.667V325.668H173.971C180.734 325.668 186.222 320.18 186.222 313.417V286.684C186.222 282.617 189.506 279.333 193.573 279.333H220.526C227.289 279.333 232.778 273.845 232.778 267.082L232.778 240.129C232.778 236.061 236.061 232.778 240.129 232.778L267.082 232.778C273.845 232.778 279.333 227.289 279.333 220.526V198.474C279.333 191.711 273.845 186.222 267.082 186.222L240.129 186.222C236.061 186.222 232.778 182.939 232.778 178.871V151.918C232.778 145.155 227.289 139.667 220.526 139.667H198.474C191.711 139.667 186.222 145.155 186.222 151.918V178.871C186.222 182.939 182.939 186.222 178.871 186.222H151.918C145.155 186.222 139.667 191.711 139.667 198.474V225.427C139.667 229.494 136.383 232.778 132.316 232.778H100.462C96.3945 232.778 93.1111 229.494 93.1111 225.427L93.1111 193.573C93.1111 189.506 96.3945 186.222 100.462 186.222H127.415C134.178 186.222 139.667 180.734 139.667 173.971V147.018C139.667 142.95 142.95 139.667 147.018 139.667H173.971C180.734 139.667 186.222 134.178 186.222 127.415V100.462C186.222 96.3945 189.506 93.1111 193.573 93.1111L225.427 93.1111C229.494 93.1111 232.778 96.3945 232.778 100.462V127.415C232.778 134.178 238.266 139.667 245.029 139.667L271.982 139.667C276.05 139.667 279.333 142.95 279.333 147.018V173.971C279.333 180.734 284.822 186.222 291.585 186.222H318.538C322.605 186.222 325.889 189.506 325.889 193.573V225.427C325.889 229.494 322.605 232.778 318.538 232.778H291.585C284.822 232.778 279.333 238.266 279.333 245.029V271.982C279.333 276.05 276.05 279.333 271.982 279.333H245.029C238.266 279.333 232.778 284.822 232.778 291.585V318.538C232.778 322.605 229.494 325.889 225.427 325.889H198.474C191.711 325.889 186.222 331.378 186.222 338.14V364.873C186.222 368.941 182.939 372.224 178.871 372.224L139.667 372.224V372.444H100.462C96.3945 372.444 93.1111 369.161 93.1111 365.094V338.14C93.1111 331.378 87.6225 325.889 80.8597 325.889H53.9064C49.8389 325.889 46.5555 322.605 46.5555 318.538V291.585C46.5555 284.822 41.0669 279.333 34.3041 279.333H7.35088C3.28339 279.333 0 276.05 0 271.982L0 147.018C0 142.95 3.28339 139.667 7.35088 139.667H34.3041C41.0669 139.667 46.5555 134.178 46.5555 127.415L46.5555 100.462C46.5555 96.3945 49.8389 93.1111 53.9064 93.1111H80.8597C87.6225 93.1111 93.1111 87.6225 93.1111 80.8596V53.9064C93.1111 49.8389 96.3945 46.5556 100.462 46.5556L127.415 46.5556C134.178 46.5556 139.667 41.0669 139.667 34.3041V7.35088C139.667 3.28339 142.95 0 147.018 0L271.982 0C276.05 0 279.333 3.28339 279.333 7.35088Z" fill="currentColor"/></symbol>
+</svg>
+
+<a class="skip" href="#contenido" data-en="Skip to content">Saltar al contenido</a>
+
+<header class="head">
+  <div class="wrap">
+    <a href="#top" aria-label="Leyla Tipa, inicio"><svg class="logo mark" viewBox="0 0 975 228" role="img" aria-label="Leyla Tipa"><use href="#lt-logo"/></svg></a>
+    <nav class="nav" aria-label="Principal">
+      <a href="#trabajo" data-en="Work">Trabajo</a>
+      <a href="#servicios" data-en="Services">Servicios</a>
+      <a href="#proceso" data-en="Process">Proceso</a>
+      <a href="#sobre-mi" data-en="About">Sobre mí</a>
+      <a href="#contacto" data-en="Contact">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<main id="contenido">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <h1><svg class="logo" viewBox="0 0 975 228" role="img" aria-label="Leyla Tipa"><use href="#lt-logo"/></svg></h1>
+      <div class="hero-row">
+        <p class="lead" data-en="I design accessible, inclusive digital products, from research to code.">Diseño productos digitales accesibles e inclusivos, de la investigación al código.</p>
+        <div class="meta">
+          <p data-en="Digital product designer in La Paz, Bolivia. I work with teams and brands around the world.">Diseñadora de productos digitales en La Paz, Bolivia. Trabajo con equipos y marcas de todo el mundo.</p>
+          <a class="pill" href="#contacto"><i aria-hidden="true"></i><span data-en="Tight schedule, let's talk">Agenda ajustada, hablemos</span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="trabajo">
+    <div class="wrap">
+      <h2 class="label" data-en="Selected work">Trabajo seleccionado</h2>
+      <div class="grid">
+        <a class="proj p1" href="https://granierortizwines.com/" target="_blank" rel="noopener">
+          <div class="tile t-blue">
+            <span class="tag" data-en="Brand · Website">Marca · Sitio web</span>
+            <span class="ar" aria-hidden="true">↗</span>
+            <p class="nm">Granier Ortiz</p>
+          </div>
+          <div class="cap"><b>Granier Ortiz</b><small data-en="Brand and website for 100 years of winemaking and the launch of the Prestige Gran Reserva Principia.">Marca y sitio web para los 100 años de la familia en la vinicultura y el lanzamiento del Prestige Gran Reserva Principia.</small></div>
+        </a>
+        <a class="proj p2" href="https://www.trendsetterbolivia.com/" target="_blank" rel="noopener">
+          <div class="tile t-lime">
+            <span class="tag" data-en="Design · Development">Diseño · Desarrollo</span>
+            <span class="ar" aria-hidden="true">↗</span>
+            <p class="nm">Trendsetter Bolivia</p>
+          </div>
+          <div class="cap"><b>Trendsetter Bolivia</b><small data-en="From a magazine to a national multiplatform outlet. 2022.">De revista a medio multiplataforma nacional. 2022.</small></div>
+        </a>
+        <a class="proj p3" href="https://www.vivasantacruz.bo/" target="_blank" rel="noopener">
+          <div class="tile t-ink">
+            <span class="tag" data-en="Website">Sitio web</span>
+            <span class="ar" aria-hidden="true">↗</span>
+            <p class="nm">Santa Cruz de la Sierra</p>
+          </div>
+          <div class="cap"><b>Santa Cruz de la Sierra</b><small data-en="A look at the city's Bebeteca, a baby library for art and culture.">Una mirada a la Bebeteca de la ciudad, una biblioteca para bebés entre los espacios de arte y cultura.</small></div>
+        </a>
+        <div class="more">
+          <h3 class="label" data-en="More websites">Más sitios</h3>
+          <ul>
+            <li><span>Fondo de Mujeres Bolivia <small data-en="Design · 2023">Diseño · 2023</small></span></li>
+            <li><a href="https://casagaston.com/trabajando/" target="_blank" rel="noopener">Casa Gastón</a></li>
+            <li><a href="https://refugioestudiotaller.com/" target="_blank" rel="noopener">Refugio Estudio Taller</a></li>
+            <li><a href="https://www.tecmetric.com/" target="_blank" rel="noopener">TecMetric</a></li>
+            <li><a href="https://www.imagine.com.bo/" target="_blank" rel="noopener">Imagine Marketing Digital</a></li>
+            <li><span>Raquel Villar-Pérez</span></li>
+            <li><span>Solía Ser</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="servicios">
+    <div class="wrap">
+      <h2 class="label" data-en="Services">Servicios</h2>
+      <ul class="rows">
+        <li><h3 data-en="UX/UI for digital products">UX/UI para productos digitales</h3><p data-en="Flows and interfaces for platforms, apps and websites.">Flujos e interfaces para plataformas, apps y sitios web.</p></li>
+        <li><h3 data-en="Websites">Sitios web</h3><p data-en="Design and front-end development, from the first sketch to launch.">Diseño y desarrollo front-end, del primer boceto a la publicación.</p></li>
+        <li><h3 data-en="Accessibility and inclusion">Accesibilidad e inclusión</h3><p data-en="Contrast, structure and navigation that work for everyone.">Contraste, estructura y navegación que funcionan para todas las personas.</p></li>
+        <li><h3 data-en="User research and testing">Investigación y pruebas con usuarios</h3><p data-en="Conversations and tests with real users to decide with evidence.">Conversaciones y pruebas con personas reales para decidir con evidencia.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="sec" id="proceso">
+    <div class="wrap">
+      <h2 class="label" data-en="Process">Proceso</h2>
+      <ol class="steps">
+        <li><em>01</em><h3 data-en="Research">Investigar</h3><p data-en="Understand the people, the context and the goal.">Entender a las personas, el contexto y el objetivo.</p></li>
+        <li><em>02</em><h3 data-en="Design">Diseñar</h3><p data-en="Structure, interface and visual language, accessible from the start.">Estructura, interfaz y lenguaje visual, accesibles desde el inicio.</p></li>
+        <li><em>03</em><h3 data-en="Test">Probar</h3><p data-en="Validate with users and adjust before building.">Validar con usuarios y ajustar antes de construir.</p></li>
+        <li><em>04</em><h3 data-en="Build">Construir</h3><p data-en="Front-end development and launch.">Desarrollo front-end y publicación.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="sec" id="sobre-mi">
+    <div class="wrap">
+      <div class="cols">
+        <div class="c-text">
+          <h2 class="label" data-en="About">Sobre mí</h2>
+          <p data-en="I believe digital accessibility and inclusive design are the foundation of a good product. I design and build websites for brands in Bolivia and work with teams around the world.">Creo que la accesibilidad digital y el diseño inclusivo son la base de un buen producto. Diseño y desarrollo sitios web para marcas de Bolivia y trabajo con equipos de todo el mundo.</p>
+        </div>
+        <div class="c-a">
+          <h3 data-en="Focus">Enfoque</h3>
+          <p class="s" data-en="UX/UI design">Diseño UX/UI</p>
+          <p class="s" data-en="Web design">Diseño web</p>
+          <p class="s" data-en="Front-end development">Desarrollo front-end</p>
+        </div>
+        <div class="c-b">
+          <h3 data-en="Experience">Experiencia</h3>
+          <p class="s">Senior UX/UI Designer, Crehana</p>
+          <p class="s m" data-en="2025–2026 · User research and testing on its live learning platform">2025–2026 · Investigación y pruebas con usuarios en su plataforma de aprendizaje en línea</p>
+        </div>
+      </div>
+      <p class="clients"><b data-en="Worked with">Han confiado en mí</b> Trendsetter Bolivia · Refugio Estudio Taller · Edugrapes · Casa Gastón · Ektimo Events · Imagine · Mundo Dental · TecMetric · Pablo Escobar Law · Táctico Studio</p>
+    </div>
+  </section>
+</main>
+
+<section class="blue" id="contacto">
+  <div class="wrap">
+    <div class="ct">
+      <div class="ct-main">
+        <h2 class="ct-h" data-en="Let's break the ice">Rompamos el hielo</h2>
+        <form id="contact-form" class="form">
+          <div class="f-row">
+            <div class="f"><label class="sr" for="f-name" data-en="Name">Nombre</label><input id="f-name" type="text" autocomplete="name" required placeholder="Nombre" data-ph-en="Name"></div>
+            <div class="f"><label class="sr" for="f-email" data-en="Email">Correo</label><input id="f-email" type="email" autocomplete="email" required placeholder="Correo" data-ph-en="Email"></div>
+          </div>
+          <div class="f"><label class="sr" for="f-msg" data-en="Your goal, budget and timeline">Tu objetivo, presupuesto y plazo</label><textarea id="f-msg" rows="3" required placeholder="¿Cuál es tu objetivo, presupuesto y plazo?" data-ph-en="What's your goal, budget and timeline?"></textarea></div>
+          <div class="f"><label class="sr" for="f-svc" data-en="How can I help you?">¿En qué puedo ayudarte?</label>
+            <select id="f-svc" required>
+              <option value="" data-en="How can I help you?">¿En qué puedo ayudarte?</option>
+              <option value="ux" data-en="UX/UI for a digital product">UX/UI para un producto digital</option>
+              <option value="web" data-en="Website design and development">Diseño y desarrollo de un sitio web</option>
+              <option value="a11y" data-en="Accessibility review">Revisión de accesibilidad</option>
+              <option value="research" data-en="User research and testing">Investigación y pruebas con usuarios</option>
+              <option value="other" data-en="Something else">Otro tema</option>
+            </select>
+          </div>
+          <button class="send" type="submit" data-en="Send request">Enviar solicitud</button>
+        </form>
+        <div class="sent" id="sent" tabindex="-1" role="status" hidden>
+          <p class="sent-t" data-en="Your message is ready">Tu mensaje está listo</p>
+          <p class="sent-n" data-en="Copy it and send it to leylamanjon@gmail.com, or open it in your email app.">Cópialo y envíalo a leylamanjon@gmail.com, o ábrelo en tu app de correo.</p>
+          <pre class="sent-b" id="sent-body"></pre>
+          <div class="sent-a">
+            <button class="send" type="button" id="copy-msg" data-en="Copy message">Copiar mensaje</button>
+            <a class="alt" id="mailto" href="mailto:leylamanjon@gmail.com" data-en="Open in email app">Abrir en mi correo</a>
+          </div>
+        </div>
+        <div class="ct-mail">
+          <h3 class="ct-h2" data-en="Prefer email?">¿Prefieres correo?</h3>
+          <a class="mail" id="mail" href="mailto:leylamanjon@gmail.com">leylamanjon@gmail.com</a>
+          <button class="copy-mail" type="button" id="copy-mail" data-en="Copy address">Copiar correo</button>
+        </div>
+      </div>
+      <div class="ct-iso" aria-hidden="true"><svg viewBox="0 0 419 419" focusable="false"><use href="#lt-iso"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<footer class="blue foot">
+  <div class="wrap">
+    <span>© 2026 Leyla Tipa · La Paz, Bolivia</span>
+    <div class="soc">
+      <a href="https://www.linkedin.com/in/leyla-manj%C3%B3n-283a10159/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://www.instagram.com/leylatipa/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+    <div class="lang" role="group" aria-label="Idioma / Language">
+      <button type="button" id="lang-es" aria-pressed="true">ES</button>
+      <i aria-hidden="true">/</i>
+      <button type="button" id="lang-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var els = [].slice.call(document.querySelectorAll('[data-en]'));
+  els.forEach(function (e) { e.setAttribute('data-es', e.textContent); });
+  var btns = { es: document.getElementById('lang-es'), en: document.getElementById('lang-en') };
+  function set(l) {
+    document.documentElement.lang = l;
+    els.forEach(function (e) { e.textContent = e.getAttribute('data-' + l); });
+    btns.es.setAttribute('aria-pressed', String(l === 'es'));
+    btns.en.setAttribute('aria-pressed', String(l === 'en'));
+    try { localStorage.setItem('lt-lang', l); } catch (_) {}
+  }
+  btns.es.addEventListener('click', function () { set('es'); });
+  btns.en.addEventListener('click', function () { set('en'); });
+  var s = null;
+  try { s = localStorage.getItem('lt-lang'); } catch (_) {}
+  if (s === 'en') set('en');
+})();
+</script>
+<script>
+(function () {
+  var L = function () { return document.documentElement.lang === 'en' ? 'en' : 'es'; };
+  var phs = [].slice.call(document.querySelectorAll('[data-ph-en]'));
+  phs.forEach(function (e) { e.setAttribute('data-ph-es', e.getAttribute('placeholder')); });
+  function syncPh() { phs.forEach(function (e) { e.setAttribute('placeholder', e.getAttribute('data-ph-' + L())); }); }
+  syncPh();
+  ['lang-es', 'lang-en'].forEach(function (id) { document.getElementById(id).addEventListener('click', syncPh); });
+
+  var EMAIL = 'leylamanjon@gmail.com';
+  var T = { es: { ok: 'Copiado', sel: 'Selecciona y copia con Ctrl+C' }, en: { ok: 'Copied', sel: 'Select and copy with Ctrl+C' } };
+  function flash(btn, msg) {
+    btn.textContent = msg;
+    setTimeout(function () { btn.textContent = btn.getAttribute('data-' + L()); }, 2200);
+  }
+  function copy(text, btn, el) {
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents(el);
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+      flash(btn, T[L()].sel);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(function () { flash(btn, T[L()].ok); }, fallback);
+    } else { fallback(); }
+  }
+
+  var form = document.getElementById('contact-form');
+  var sent = document.getElementById('sent');
+  var body = document.getElementById('sent-body');
+  var mt = document.getElementById('mailto');
+  var cm = document.getElementById('copy-msg');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var l = L();
+    var name = document.getElementById('f-name').value.trim();
+    var mail = document.getElementById('f-email').value.trim();
+    var goal = document.getElementById('f-msg').value.trim();
+    var sel = document.getElementById('f-svc');
+    var svc = sel.options[sel.selectedIndex].textContent;
+    var msg = l === 'en'
+      ? 'Hi Leyla, I\'m ' + name + ' (' + mail + ').\nI\'m interested in: ' + svc + '.\nGoal, budget and timeline: ' + goal
+      : 'Hola Leyla, soy ' + name + ' (' + mail + ').\nMe interesa: ' + svc + '.\nObjetivo, presupuesto y plazo: ' + goal;
+    var subj = l === 'en' ? 'Project inquiry' : 'Consulta de proyecto';
+    body.textContent = msg;
+    mt.setAttribute('href', 'mailto:' + EMAIL + '?subject=' + encodeURIComponent(subj) + '&body=' + encodeURIComponent(msg));
+    sent.hidden = false;
+    sent.focus();
+  });
+  cm.addEventListener('click', function () { copy(body.textContent, cm, body); });
+  var cmail = document.getElementById('copy-mail');
+  cmail.addEventListener('click', function () { copy(EMAIL, cmail, document.getElementById('mail')); });
+})();
+</script>
+</body>
+</html>
